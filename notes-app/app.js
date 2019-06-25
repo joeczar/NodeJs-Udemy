@@ -1,13 +1,15 @@
 /*jshint esversion: 6 */
-const fs = require('fs');
+/* 
+Challenge: Define 6 use a function in  a new file.
 
-//fs.writeFileSync('notes.txt', 'I\'m Joe and I\'m a Javascript Ninja!');
+1. Create a new File  called notes.js
+2. Create getNotes function that returns "Your Notes---"
+3. Export getNotes function
+4. Load in and call getNotes from app.js and console.log message
 
-fs.appendFileSync('notes.txt', 'My Ninjitsu getchu all worked up!');
-
-/*
-Challenge: Append a message to notes.txt
-1. Use appendFileSync to append to the file
-2. Run the script
-3. Check work by viewing the file
 */
+
+const getNotes = require('./notes.js');
+
+getNotes();
+//console.log(add(60, 9));require('./notes.js').default
