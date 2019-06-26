@@ -1,20 +1,56 @@
 /*jshint esversion: 6 */
 const validator = require('validator');
-const getNotes = require('./notes.js');
 const chalk = require('chalk');
+const yargs = require('yargs');
+const getNotes = require('./notes.js');
 
-console.log(chalk.blue('Sup Gangsta!'));
+//Customize Yargs version
+yargs.version('1.1.0');
 
-const logColor = (msg) => {
-  let i = (msg === false) ? 'red' : 'green'; 
-  console.log(i);
-  
-  console.log(chalk.keyword(i).inverse(msg));
-};
+// Create add command
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note.',
+  handler: function () {
+    console.log('Adding a new note.');
+  }
+});
+
+// Create remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note.',
+  handler: function () {
+    console.log('Removing a note');
+  }
+});
+
+// Create list command
+yargs.command({
+  command: 'list',
+  describe: 'list all notes.',
+  handler: function () {
+    console.log('showing all notes');
+  }
+});
+
+// Create read command
+yargs.command({
+  command: 'read',
+  describe: 'Read a note.',
+  handler: function () {
+    console.log('Reading a note');
+  }
+});
+// add, remove, read, list
 
 
-getNotes();
+console.log(yargs.argv);
 
-logColor(validator.isEmail('joe.czaroutlook.com'));
+const command = process.argv[2];
 
-logColor(validator.isURL('https://joeczarnecki.com'));
+// if (command === 'add') {
+//   console.log(chalk.green.inverse('Adding Note!'));
+// } else if (command === 'remove') {
+//   console.log(chalk.red.inverse('removing Note!'));
+// }
