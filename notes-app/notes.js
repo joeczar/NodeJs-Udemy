@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 const fs = require("fs");
+const chalk = require("chalk");
+
 const getNotes = () => console.log("Your Notes...");
 
 const addNote = (title, body) => {
@@ -20,7 +22,20 @@ const addNote = (title, body) => {
 };
 
 const removeNote = title => {
-  console.log("Removing note: " + title);
+  
+  const notes = loadNotes();
+  const notesToKeep = notes.filter(note => note.title !== title);
+  console.log(notesToKeep.length, notes.length);
+  
+  if (notesToKeep.length < notes.length){
+    saveNotes(notesToKeep);
+    console.log(chalk.green.inverse(title + ' was removed.'));
+  } else {
+    console.log(chalk.red.inverse(title + ' was not found.'));
+    
+  }
+  
+  
 };
 
 const saveNotes = notes => {
