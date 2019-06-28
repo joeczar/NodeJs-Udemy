@@ -25,7 +25,6 @@ const removeNote = title => {
   
   const notes = loadNotes();
   const notesToKeep = notes.filter(note => note.title !== title);
-  console.log(notesToKeep.length, notes.length);
   
   if (notesToKeep.length < notes.length){
     saveNotes(notesToKeep);
