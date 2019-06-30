@@ -8,6 +8,8 @@ const addNote = (title, body) => {
   /*jshint -W087 */ 
   debugger;
 
+  //debugger learned how to debug with inspect and chrome dev tools
+
   if (!duplicateNote) {
     notes.push({
       title: title,
