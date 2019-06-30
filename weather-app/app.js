@@ -1,14 +1,13 @@
 /*jshint esversion: 6 */
 
-console.log('Starting...');
+const request = require('request');
 
-setTimeout(() => {
-  console.log('2 second timer.');
+const url = 'https://api.darksky.net/forecast/cb3bd684c5147594a33daa61c14c185b/52.563873,%2013.426779?units=si&lang=de';
+
+request({ url: url, json: true }, (error, response) => {
+  const dataCurrent = response.body.currently;
+  console.log(`Es ist ${dataCurrent.temperature} grad, mit eine ${dataCurrent.precipProbability} prozent Niederschlagswarscheinlichkeit.`);
+  const dataDaily = response.body.daily.data[0].summary;
+  console.log(dataDaily);
   
-}, 2000);
-
-setTimeout(() => {
-  console.log('0 Second timer.');
-}, 0);
-
-console.log("Ending.");
+});
