@@ -6,7 +6,7 @@ const geoCode = (address, callback) => {
   const geoLocUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${key}&limit=1`;
   request({ url: geoLocUrl, json: true }, (error, response) => {
       if (error) {
-        callback("Couldn't reach MapBox.", undefined);
+        callback("Couldn't reach service.", undefined);
       } else if (response.body.features.length < 1) {
         callback('No matching results', undefined);
        } else {
