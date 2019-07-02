@@ -12,14 +12,15 @@ const darkSky = (lat, long, callback) => {
       callback('Something went wrong', undefined);
     } else {
       const dataCurrent = response.body.currently;
+      const dataDaily = response.body.daily.data[0].summary;
       callback(
         undefined,
         `Es ist ${dataCurrent.temperature} grad, mit eine ${
           dataCurrent.precipProbability
-        } prozent Niederschlagswarscheinlichkeit.`
+        } prozent Niederschlagswarscheinlichkeit. 
+        ${dataDaily}`
       );
-      const dataDaily = response.body.daily.data[0].summary;
-      callback(undefined, dataDaily);
+      
     }
   });
 };
