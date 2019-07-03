@@ -30,7 +30,7 @@ const product = {
 // console.log('====================================');
 // console.log(rating);
 
-const transaction = (type, { label, stock }) =>{
+const transaction = ({ label, stock }, type ) =>{
   console.log(type, label, stock);
   
 };

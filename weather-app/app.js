@@ -9,17 +9,17 @@ if (!userInput) {
   console.log('please provide a location');
   console.log('====================================');
 } else {
-  geoCode(userInput, (error, locData) => {
+  geoCode(userInput, (error, {lattitude, longitude, location}) => {
     if (error) {
       return console.log(error);
     }
     
-    darkSky(locData.lattitude, locData.longitude, (error, weatherData) => {
+    darkSky(lattitude, longitude, (error, weatherData) => {
       if (error) {
-        return console.log(error, locData);
+        return console.log(error, location);
       }
-      console.log("MapBox:", locData);
-      console.log("DarkSky:", weatherData);
+      console.log("Ort:", location);
+      console.log("Wettervorhersage:", weatherData);
     });
   });
 }
