@@ -1,21 +1,26 @@
 /*jshint esversion: 6 */
-
 const geoCode = require("./utils/geoCode");
 const darkSky = require("./utils/darkSky");
 
-console.log(argv);
+const userInput = process.argv[2];
 
-
-geoCode("Prenzlauer Promenade 147", (error, locData) => {
-  if (error) {
-    return console.log(error);
-  }
-  
-  darkSky(locData.lattitude, locData.longitude, (error, weatherData) => {
+if (!userInput) {
+  console.log('====================================');
+  console.log('please provide a location');
+  console.log('====================================');
+} else {
+  geoCode(userInput, (error, locData) => {
     if (error) {
       return console.log(error);
     }
-    console.log("MapBox:", locData);
-    console.log("DarkSky:", weatherData);
+    
+    darkSky(locData.lattitude, locData.longitude, (error, weatherData) => {
+      if (error) {
+        return console.log(error, locData);
+      }
+      console.log("MapBox:", locData);
+      console.log("DarkSky:", weatherData);
+    });
   });
-});
+}
+
