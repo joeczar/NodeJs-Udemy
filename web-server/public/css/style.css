@@ -1,8 +1,27 @@
-h1 {
-  color: purple;
+
+
+.page-title {
+  display: flex;
+  justify-content: center
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+nav a {
+  margin: 20px;
 }
 
 #joe-zoom {
   width: 500px;
   display: block;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background: darkgray;
+  justify-content: flex-end;
+  padding: 20px;
 }
