@@ -1,19 +1,13 @@
 /*jshint esversion: 6 */
+const path = require('path');
 const express = require('express');
 
 const app = express();
+console.log(__dirname);
+console.log(path.join(__dirname, '../public'));
+const publicDir = path.join(__dirname, '../public');
 
-app.get('', (req, res) => {
-  res.send('<h1>Whatch you want?!</h1>');
-});
-
-app.get('/help', (req, res) => {
-  res.send('<h1>Help Page</h1>');
-});
-
-app.get('/about', (req, res) => {
-  res.send('<h1>About Page</h1>');
-});
+app.use(express.static(publicDir));
 
 app.get('/weather', (req, res) => {
   res.send({
