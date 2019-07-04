@@ -16,7 +16,10 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-  res.send('<h1>Weather Page</h1>');
+  res.send({
+    location: 'Berlin, Germany',
+    forecast: "Es is 20 grad und sonnig"
+  });
 });
 
 app.listen(3000, () => {
