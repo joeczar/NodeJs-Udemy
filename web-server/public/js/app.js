@@ -1,15 +1,27 @@
 /*jshint esversion: 6 */
-console.log('Bring the JS to ya');
 
-fetch('http://localhost:3000/weather?location=!').then((response) => {
+const weatherForm = document.querySelector('form');
+const search = document.querySelector('input');
+const messageOne = document.querySelector('#message-1');
+const messageTwo = document.querySelector('#message-2');
+
+weatherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+const location = search.value;
+messageOne.textContent = "Laden...";
+messageTwo.textContent = "";
+
+fetch(`http://localhost:3000/weather?location=${location}`).then((response) => {
   response.json().then((data) => {
     if (data.error) {
-      console.log(data.error);
+      messageTwo.textContent = data.error;
     } else {
-      console.log(data.location);
-      console.log(data.forecast);
+      messageOne.textContent = data.location;
+      messageTwo.textContent = data.forecast;
+      //console.log(data.forecast);
       
     }
     
   });
+});
 });

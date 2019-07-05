@@ -101,3 +101,7 @@ footer {
 #footer-name {
   text-align: right;
 }
+
+#message {
+  margin-top: 20px;
+}
