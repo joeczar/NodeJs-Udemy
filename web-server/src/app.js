@@ -41,9 +41,28 @@ app.get("/help", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
+  if (!req.query.location) {
+    return res.send({
+      error: 'Please enter an address.'
+    });
+  }
+  
   res.send({
-    location: "Berlin, Germany",
+    location: req.query.location,
     forecast: "Es is 20 grad und sonnig"
+  });
+});
+
+app.get("/products", (req, res) => {
+  if (!req.query.search){
+    return res.send({
+      error: 'You must provide a search term.'
+    });
+  }
+  
+  console.log(req.query.search);
+  res.send({
+    products: []
   });
 });
 
