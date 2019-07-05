@@ -98,3 +98,6 @@ footer {
   display: flex;
   justify-content: flex-end;
 }
+#footer-name {
+  text-align: right;
+}

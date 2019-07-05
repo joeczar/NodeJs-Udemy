@@ -20,7 +20,7 @@ app.use(express.static(publicDir));
 
 app.get("", (req, res) => {
   res.render("index", {
-    title: "Weather App",
+    title: "Weather",
     name: "Joe Czarnecki"
   });
 });
@@ -29,7 +29,7 @@ app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
     name: "Joe Czarnecki"
-  }); 
+  });
 });
 
 app.get("/help", (req, res) => {
@@ -47,18 +47,18 @@ app.get("/weather", (req, res) => {
   });
 });
 
-app.get('/help/*', (req, res) => {
-  res.render('404', {
-    title: '404',
-    message: 'Help article not found',
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    title: "404",
+    message: "Help article not found",
     name: "Joe Czarnecki"
   });
 });
 
-app.get('*', (req, res) => {
-  res.render('404', {
-    title: '404',
-    message: 'Page not found',
+app.get("*", (req, res) => {
+  res.render("404", {
+    title: "404",
+    message: "Page not found",
     name: "Joe Czarnecki"
   });
 });
