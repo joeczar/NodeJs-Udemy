@@ -17,9 +17,7 @@ fetch(`/weather?location=${location}`).then((response) => {
       messageTwo.textContent = data.error;
     } else {
       messageOne.textContent = data.location;
-      messageTwo.textContent = data.forecast;
-      //console.log(data.forecast);
-      
+      messageTwo.textContent = `It is currently ${data.forecast.currentTemp} degrees with a daily high of ${data.forecast.dailyHigh} degrees and a low of ${data.forecast.dailyLow} degrees. There is a ${data.forecast.percipitation}% chance of rain. ${data.forecast.dataDaily}`;
     }
     
   });
