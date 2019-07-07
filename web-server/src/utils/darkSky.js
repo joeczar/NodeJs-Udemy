@@ -18,7 +18,8 @@ const darkSky = (lat, long, callback) => {
         dailyHigh: dataDaily.temperatureHigh,
         dailyLow: dataDaily.temperatureLow,
         currentTemp: dataCurrent.temperature,
-        percipitation: dataCurrent.precipProbability
+        percipitation: dataCurrent.precipProbability,
+        icon
       };
 
       callback(undefined, weatherData);
