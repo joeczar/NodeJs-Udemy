@@ -34,22 +34,26 @@
       <div class="ui grid">
         <div class="row">
           <div class="three wide column">
-            <svg class="icon">
-              <use xlink:href="/img/weather-icons.svg#rain" />
-            </svg>
+            
+              <svg class="icon"  width="100%">
+                <use id="icon-link" xlink:href="" />
+              </svg>
+            
           </div>
-          <div class="thirteen wide column">
-            <h3 class="ui header" id="message-1"></h3>
-            <p id="message-2"></p>
-          </div>
+        
+        <div class="thirteen wide column">
+          <h3 class="ui header" id="message-1"></h3>
+          <p id="message-2"></p>
         </div>
       </div>
-
     </div>
+
+  </div>
   </div>
 
   {{>footer}}
   <script src="/js/app.js"></script>
+  
 </body>
 
 </html>
